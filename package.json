@@ -1,0 +1,28 @@
+{
+  "name": "go-mobile-marketing",
+  "version": "0.0.1",
+  "description": "Standalone marketing website for GO Mobile.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~4.4.3",
+    "ejs": "0.8.x",
+    "gulp-sass": "~0.7.1",
+    "gulp": "~3.5.6",
+    "gulp-clean": "~0.2.4",
+    "gulp-concat": "~2.2.0",
+    "gulp-autoprefixer": "~0.0.6"
+  },
+  "scripts": {
+    "postinstall": "gulp build && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/glg/go-marketing.git"
+  },
+  "author": "GLG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glg/go-marketing/issues"
+  },
+  "homepage": "https://github.com/glg/go-marketing"
+}

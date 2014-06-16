@@ -1,0 +1,40 @@
+/*
+ * All GLG Go app variables are defined here...
+ */
+$background-color: #FFF;
+$header-background-color: #FAFAFA;
+$accent-color: #ef4035;
+$tablelist-background: #F3F3F3;
+$gray: #9B9B9B;
+$light-gray: #EDEDED;
+$white: #FFF;
+$offwhite: #f3f3f3;
+$sitewide-color: #454545;
+
+// Icon colors
+$project-folder-color: #9B9B9B;
+$default-icon-color: #9B9B9B;
+
+// Border colors
+//$g-border-color: #C8C7CC;
+$g-border-color: #E6E6E6;
+$header-border-color: #EDEDED;
+$border-light: #D4D4D4;
+
+// GLG Heading color
+$header-white-color: #FFF;
+
+// Form Labels
+$form-label-color: #9B9B9B;
+
+// Contact Info Panel
+$contact-background: #F6F6F6;
+
+html {
+  font-style: normal;
+  font-weight: normal;
+  color: $sitewide-color;
+  
+}
+
+

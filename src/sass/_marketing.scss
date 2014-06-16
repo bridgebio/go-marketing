@@ -1,0 +1,680 @@
+/* ******************************************************** */
+
+/*
+ * MARKETING WEBSITE 
+ * --------------------------
+ * Located here temporarily.  Until it lives standalone.
+ */
+
+/* 
+ * Media queries specifically for the marketing website.  
+ * Do not use the media queries located in _mediaqueries.scss.
+ * Those mixins are for the GO Mobile App only.
+ */
+
+// $q-mobile-portrait    : 320px !default;
+// $q-mobile-landscape   : 480px !default;
+// $q-tablet-portrait   : 768px !default;
+// $q-tablet-landscape : 1024px !default;
+// $q-desktop    : 1200px !default;
+ 
+$q-mobile-portrait : 20em !default;
+$q-mobile-landscape  : 30em !default;
+$q-tablet-portrait : 48em !default;
+$q-tablet-landscape  : 64em !default;
+$q-desktop   : 75em !default;
+
+// Both portrait and landscape
+@mixin mobile-only {
+  @media (max-width : $q-mobile-landscape) {
+    @content;
+  }
+}
+ 
+// Everything up to and including the portrait width of the phone
+// Since it's the smallest query it doesn't need a min
+@mixin mobile-portrait-only {
+  @media (max-width : $q-mobile-portrait) {
+    @content;
+  }
+}
+ 
+// Everything above and including the mobile portrait
+@mixin mobile-portrait-and-up {
+  @media (min-width : $q-mobile-portrait) {
+    @content;
+  }
+}
+ 
+// Everything above and including the mobile landscape width
+@mixin mobile-landscape-and-up {
+  @media only screen and (min-width : $q-mobile-landscape + .001) {
+    @content;
+  }
+}
+ 
+// Everything above and including the portrait width of the tablet
+@mixin tablet-portrait-and-up {
+  // @media only screen and (min-width : $mq-mobile-landscape + 1) {
+  @media only screen and (min-width : $q-tablet-portrait + .001) {
+    @content;
+  }
+}
+ 
+// Everything larger than portrait tablet
+@mixin tablet-landscape-and-up {
+  @media only screen and (min-width : $q-tablet-portrait + .001) {
+    @content;
+  }
+}
+ 
+// Everything larger than a landscape tablet
+@mixin desktop-and-up {
+  @media only screen and (min-width : $q-tablet-landscape + .001) {
+    @content;
+  }
+}
+
+/* ----- End of Media Query mixins ----- */
+
+/*
+ * Marketing/Brochure website styles.
+ */
+
+.site-container {
+  background: #FFF;
+}
+
+/* Constraints for each row */
+.row1-container,
+.row2-container,
+.row3-container,
+.row4-container,
+.action-msg,
+footer {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.marketing-container {
+  position: relative;
+  margin: 0 auto;
+  background: #FFF;
+  color: #454545;
+  //max-width: 1200px;
+  //width: 92%;
+}
+
+.hero {
+  background: url('../images/NYC_background_1200.jpg') no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  z-index: 1;
+  &:after {
+    content: "";
+    background: rgba(69,69,69,0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+}
+
+.hero-copy {
+  text-align: center;
+  z-index: 999;
+  position: relative;
+  margin-bottom: 25px;
+  padding-top: 15px;
+  h2 {
+    @include glg-logo();
+    font-size: $font-size-30;
+    color: $white;
+    padding: 10px 0 0 0;
+    margin: 0;
+  }
+  .hero-callout {
+    font-weight: 100;
+    color: $white;
+    @include tablet-portrait-and-up() {
+      font-size: $font-size-60;
+    }
+    font-size: $font-size-32;
+    padding: 0;
+    margin: 15px 0;
+  }
+}
+
+.hero-product {
+  text-align: center;
+  img {
+    max-width: 310px;
+    min-width: 260px;
+    width: 45%;
+    position: relative;
+    top: 4px;
+    left:0;
+    z-index: 10;
+  }  
+}
+
+/* 
+ * DOWNLOAD App BUTTON located in Hero Image 
+ */
+
+.hero-app-btn {
+  cursor: pointer;
+  position: absolute;
+  @include tablet-portrait-and-up() {
+    bottom: 125px;
+    right: 40px;
+  }
+  bottom: 110px;
+  right: 7px;
+  display: flex;
+  flex-flow: row; 
+  z-index: 11;
+  padding: 20px 20px 10px 20px;
+  border-radius: 8px;
+  transition: background 250ms linear; 
+  background: rgba(52,52,52,0.8);
+  border: 1px solid #999;
+  @include mobile-landscape-and-up() {
+    border: 1px solid #FFF;
+    background: transparent;
+  }
+  .icon-container {
+    flex-flow: row;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+    span {
+      color: #FFF;
+      border: 1px solid #FFF;
+      padding: 18px 12px 0 12px;
+      border-radius: 60px;
+      font-size: $font-size-40;
+    }
+  }
+  .hero-btn-copy {
+    flex-flow: row;
+    flex-wrap: nowrap;
+    flex-grow: 2;
+    margin-left: 10px;
+    transition: background 250ms linear; 
+    h4 {
+      font-weight: normal;
+      font-size: $font-size-20;
+      color: #FFF;
+      margin: 0;
+      padding: 0;
+    }
+    p {
+      color: #FFF;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  &:hover {
+    transition: background 250ms linear; 
+    background-image: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.08));
+  }
+}
+
+/* 
+ * Red Ribbon with App Name (bottom of hero image)
+ */
+.ribbon {
+  background: rgba(239, 69, 62, 0.95);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  .r-title {
+    text-align: center;
+    font-weight: 100;
+    @include mobile-landscape-and-up() {
+      font-size: $font-size-40;
+    }
+    font-size: $font-size-24;
+    color: $white;
+    margin: 15px 0;
+    .r-logo {
+      @include glg-logo();
+      font-size: $font-size-14;
+      margin-left: 5px;
+    }
+    .slant {
+      font-weight: 300;
+      font-size: 1.1em;
+      position: relative;
+      top: 2px;
+    }
+  }
+}
+
+/* Apply flexbox to the following rows */
+.row1-container,
+.row2-container,
+.row3-container,
+.row4-container {
+  display: flex;
+  @include tablet-portrait-and-up() {
+    flex-flow: row; 
+  }
+  flex-flow: column; 
+  .row1-copy,
+  .row2-copy,
+  .row3-copy,
+  .row4-copy {
+    @include tablet-portrait-and-up() {
+      flex-flow: row; 
+    }
+    flex-flow: column;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+  }
+  .row1-img,
+  .row2-img,
+  .row3-img,
+  .row4-img {
+    @include tablet-portrait-and-up() {
+      flex-flow: row; 
+    }
+    flex-flow: column;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+  }
+}  
+
+/* Typography for each row copy */
+.r1-title,
+.r2-title,
+.r3-title,
+.r4-title {
+  font-weight: 100;
+  font-size: $font-size-32;
+  @include tablet-portrait-and-up() {
+    font-size: $font-size-40;
+  }
+}
+
+.r1-copy,
+.r2-copy,
+.r3-copy,
+.r4-copy {
+  font-weight: 300;
+  font-size: $font-size-18;
+  line-height: 1.6;
+}
+
+
+.row1 {
+  margin: 0 auto;
+  background: #FFF;
+  @include tablet-portrait-and-up() {
+    padding: 50px 0 50px 0;
+  }
+  padding: 0;
+  .row1-container {
+    @include mobile-landscape-and-up() {
+      margin: 100px auto;
+    }
+    margin: 0 auto;
+    .row1-copy {
+      .r1-title {
+        position: absolute;
+      }
+      .r1-copy {
+        @include tablet-portrait-and-up() {
+          margin-top: 100px;
+        }
+        margin-top: 120px;
+      }
+    }
+    .row1-img {
+      img {
+        max-width: 100%;
+        min-width: 250px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.row2 {
+  margin: 0 auto;
+  background: url('../images/marketing/glg_mosaic-vibrant.jpg') no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: relative;
+  &:after {
+    content: "";
+    background: rgba(69,69,69,0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+  .row2-copy {
+    position: relative;
+    z-index: 10;
+    @include tablet-portrait-and-up() {
+      padding: 0 50px;
+    }
+    padding: 0;
+    .r2-title {
+      color: $white;
+    }
+    .r2-copy {
+      color: $white;
+    }
+  }
+}
+
+.row2-container {
+  @include tablet-portrait-and-up() {
+    padding-top: 85px;
+  }
+  padding-top: 0;
+}
+
+.row2-img-bottom {
+  display: block;
+  width: 85%;
+  max-width: 400px;
+  min-width: 300px;
+  margin: 0 auto;
+  @include tablet-portrait-and-up() {
+    display: none;
+  }
+}
+
+.row2-img {
+  width: 85%;
+  max-width: 450px;
+  min-width: 350px;
+  display: none;
+  @include tablet-portrait-and-up() {
+    display: block;
+  }
+}
+
+.row2-img,
+.row2-img-bottom {
+  bottom: -5px;
+  position: relative;
+  text-align: center;
+  padding: 0 50px;
+  z-index: 11;
+  img {
+    max-width: 100%;
+    width: 100%;  
+  }
+}
+
+.row3 {
+  background: #FAFAFA;
+  margin: 0 auto;
+  .row3-copy {
+    .r3-title,
+    .r3-copy {
+      @include mobile-landscape-and-up () {
+        width: 80%;
+      }
+      width: 95%;
+    }    
+  }
+  .row3-img {
+    @include tablet-portrait-and-up() {
+      display: block;
+    }
+    display: none;
+    min-width: 375px;
+    width: 85%;
+    img {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+  .row3-img-mobile {
+    width: 85%;
+    max-width: 300px;
+    min-width: 300px;
+    margin: 0 auto;
+    @include tablet-portrait-and-up() {
+      display: none;
+    }
+    display: block;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.row4 {
+  .row4-container {
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    .row4-img-mobile {
+      @include tablet-portrait-and-up() {
+        display: none; 
+      }
+      display: block;
+    }
+    .row4-img {
+      @include tablet-portrait-and-up() {
+        display: block; 
+      }
+      display: none;
+    }
+    .row4-img,
+    .row4-img-mobile {
+      background: url('../images/NYC_background_1024_opt.jpg') no-repeat center center;
+      background-size: cover;
+      padding: 50px 0;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      z-index: 1;
+      position: relative;
+      text-align: center;
+      &:after {
+        content: "";
+        background: rgba(255,255,255,0.8);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+      }
+      img {
+        padding: 50px;
+        min-width: 300px;
+        max-width: 400px;
+        width: 75%;
+      }
+    }
+    .row4-copy {
+      background-image: linear-gradient(#454545, #1F1F1F);
+      @include mobile-landscape-and-up() {
+        padding: 100px 0;
+      }
+      padding: 25px 0;
+      .r4-title,
+      .r4-copy {
+        color: $white;
+        @include mobile-landscape-and-up () {
+          width: 80%;
+        }
+        width: 95%;
+        margin: 0 auto;
+      }
+      .r4-title {
+       margin: 0 auto 20px auto;
+      }
+    }
+  }  
+}
+
+.action-msg {
+  padding: 50px 0;
+}
+
+.action-callout-container {
+  border: 1px solid #CCC;
+  border-radius: 8px;
+  @include tablet-portrait-and-up() {
+    flex-flow: row;
+    width: 80%;
+  }
+  display: flex;
+  flex-flow: column;
+  width: 95%;
+  margin: 0 auto;
+  @include clearfix();
+  .action-callout {
+    @include tablet-portrait-and-up() {
+      flex-direction: row;
+    }
+    flex-grow: 2;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    p {
+      font-weight: 300;
+      font-size: $font-size-18;
+      text-align: center;
+      @include tablet-portrait-and-up() {
+        text-align: left;
+        font-size: $font-size-21;
+        margin: 38px 10px 19px 20px;
+      }
+      margin: 23px 10px 19px 20px; 
+      span {
+        font-weight: bold;
+        margin-right: 10px;
+      }
+    }
+  }
+  .action-container {
+    @include tablet-portrait-and-up() {
+      flex-direction: row;
+      flex-grow: 1;
+      border-left: 1px solid #CCC;
+    }
+    flex-direction: column;
+    flex-wrap: nowrap;
+    float: none;
+    background: #FAFAFA; 
+    min-width: 260px;
+    padding: 15px 10px 15px 10px;
+    text-align: center;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .fapp-btn {
+    background: linear-gradient(top, #F2635D, #E71C13);
+    border: 1px solid #FF1E18;
+    border-radius: 8px;
+    padding: 10px 10px 10px 0px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.15);
+    width: 65%;
+    margin: 0 auto;
+    .icon-container {
+      display: inline-block;
+      span {
+        color: $white;
+        font-size: 30px;
+        border: 1px solid #FFF;
+        border-radius: 50px;
+        padding: 14px 8px 0 8px
+      } 
+    }
+    .hero-btn-copy {
+      display: inline-block;
+      h4 {
+        text-align: left;
+        font-weight: 300;
+      }
+      p {
+        font-size: $font-size-12;
+      }
+      h4, p {
+        color: $white;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+} 
+
+footer {
+  padding: 25px 0;
+  background: $white;
+}
+
+.footer-container {
+  margin: 0 auto;
+  width: 85%;
+  display: flex;
+  @include mobile-landscape-and-up() {
+    flex-flow: row;
+  }
+  flex-flow: column;
+  .footer-menu {
+    list-style-type: none;
+    @include mobile-landscape-and-up() {
+      flex-direction: row;
+    }
+    flex-direction: column;
+    flex-grow: 2;
+    flex-wrap: nowrap;
+    padding: 0;
+    li {
+      font-weight: 300;
+      display: inline-block;
+      margin-right: .8em;
+      a {
+        color: #BBBBBB;
+        font-size: $font-size-14;
+        text-decoration: none;
+      }
+    }
+  }
+  .footer-logo {
+    color: #BBBBBB;
+    flex-grow: 1;
+    @include glg-logo();
+    @include mobile-landscape-and-up() {
+      font-size: $font-size-20;
+      flex-direction: row;
+    }
+    flex-direction: column;
+    font-size: $font-size-16;
+    margin: 16px 0;
+    text-align: right;
+  }
+}
+
+/* ********************************************************
+ * End of MARKETING WEBSITE
+ */
+
