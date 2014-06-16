@@ -5,7 +5,6 @@
   "main": "server.js",
   "dependencies": {
     "express": "~4.4.3",
-    "ejs": "0.8.x",
     "gulp-sass": "~0.7.1",
     "gulp": "~3.5.6",
     "gulp-clean": "~0.2.4",

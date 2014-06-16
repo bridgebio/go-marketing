@@ -4,7 +4,6 @@ var express         = require('express');
 var http            = require('http');
 var path            = require('path');
 var fs              = require('fs');
-var ejs             = require('ejs');
 var middleware      = require('./lib/middleware');
 
 // Initialize Express
@@ -15,10 +14,6 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // Normalize the URL by stripping off the trailing / and .html
 //app.use(middleware.normalizeUrl());
-
-// Setup the rendering engine
-app.engine('ejs', ejs.__express);
-app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'build')));
 var server = http.createServer(app);
