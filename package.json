@@ -12,7 +12,7 @@
     "gulp-autoprefixer": "~0.0.6"
   },
   "scripts": {
-    "postinstall": "gulp build && node server.js"
+    "start": "gulp build && node server.js"
   },
   "repository": {
     "type": "git",
