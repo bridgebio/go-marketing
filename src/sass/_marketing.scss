@@ -116,6 +116,7 @@ footer {
   &:after {
     content: "";
     background: rgba(69,69,69,0.8);
+    //background: -webkit-linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.9)),transparent;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -141,13 +142,13 @@ footer {
     margin: 0;
   }
   .hero-callout {
-    font-weight: 100;
-    color: $white;
+    font-weight: 300;
+    color: #E6E6E6;
     @include tablet-portrait-and-up() {
-      font-size: $font-size-60;
+      font-size: $font-size-40;
     }
-    font-size: $font-size-32;
-    padding: 0;
+    font-size: $font-size-28;
+    padding: 10px 0;
     margin: 15px 0;
   }
 }
@@ -155,7 +156,7 @@ footer {
 .hero-product {
   text-align: center;
   img {
-    max-width: 310px;
+    max-width: 450px;
     min-width: 260px;
     width: 45%;
     position: relative;
@@ -239,17 +240,26 @@ footer {
   z-index: 20;
   .r-title {
     text-align: center;
-    font-weight: 100;
+    font-weight: 300;
     @include mobile-landscape-and-up() {
       font-size: $font-size-40;
     }
     font-size: $font-size-24;
-    color: $white;
+    color: #FAFAFA;
     margin: 15px 0;
     .r-logo {
       @include glg-logo();
       font-size: $font-size-14;
       margin-left: 5px;
+    }
+    .go {
+      font-weight: 100; 
+      position: relative;
+      top: 2px;
+      font-size: 28px;
+      @include mobile-landscape-and-up() {
+        font-size: 45px;
+      }
     }
     .slant {
       font-weight: 300;
@@ -299,11 +309,21 @@ footer {
 .r2-title,
 .r3-title,
 .r4-title {
-  font-weight: 100;
-  font-size: $font-size-32;
+  font-weight: 300;
+  font-size: $font-size-28;
   @include tablet-portrait-and-up() {
-    font-size: $font-size-40;
+    font-size: $font-size-32;
   }
+}
+
+.r1-title,
+.r3-title {
+  color: #555; 
+}
+
+.r2-title,
+.r4-title {
+  color: #E6E6E6;
 }
 
 .r1-copy,
@@ -312,6 +332,9 @@ footer {
 .r4-copy {
   font-weight: 300;
   font-size: $font-size-18;
+  @include tablet-portrait-and-up() {
+    font-size: $font-size-20;
+  }
   line-height: 1.6;
 }
 
@@ -329,6 +352,10 @@ footer {
     }
     margin: 0 auto;
     .row1-copy {
+      width: 100%;
+      @include tablet-portrait-and-up() {
+        width: 70%;
+      }
       .r1-title {
         position: absolute;
       }
