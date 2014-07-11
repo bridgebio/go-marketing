@@ -619,6 +619,14 @@ footer {
   }
 
   .fapp-btn {
+    a {
+      position: relative;
+      top: 5px;
+      left: 5px;
+    }
+  }
+
+  .fapp-btn {
     background: linear-gradient(top, #F2635D, #E71C13);
     border: 1px solid #FF1E18;
     border-radius: 8px;
