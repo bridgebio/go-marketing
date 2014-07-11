@@ -232,7 +232,7 @@ footer {
  * Red Ribbon with App Name (bottom of hero image)
  */
 .ribbon {
-  background: rgba(239, 69, 62, 0.95);
+  background: rgba(239, 69, 62, 0.80);
   position: absolute;
   bottom: 0;
   left: 0;
@@ -353,9 +353,9 @@ footer {
     margin: 0 auto;
     .row1-copy {
       width: 100%;
-      @include tablet-portrait-and-up() {
+      /*@include tablet-portrait-and-up() {
         width: 70%;
-      }
+      }*/
       .r1-title {
         position: absolute;
       }
@@ -542,6 +542,7 @@ footer {
     }
     .row4-copy {
       background-image: linear-gradient(#454545, #1F1F1F);
+      width: 100%;
       @include mobile-landscape-and-up() {
         padding: 100px 0;
       }
