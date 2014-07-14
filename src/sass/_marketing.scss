@@ -116,6 +116,7 @@ footer {
   &:after {
     content: "";
     background: rgba(69,69,69,0.8);
+    //background: -webkit-linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.9)),transparent;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -141,13 +142,13 @@ footer {
     margin: 0;
   }
   .hero-callout {
-    font-weight: 100;
-    color: $white;
+    font-weight: 300;
+    color: #E6E6E6;
     @include tablet-portrait-and-up() {
-      font-size: $font-size-60;
+      font-size: $font-size-40;
     }
-    font-size: $font-size-32;
-    padding: 0;
+    font-size: $font-size-28;
+    padding: 10px 0;
     margin: 15px 0;
   }
 }
@@ -155,7 +156,7 @@ footer {
 .hero-product {
   text-align: center;
   img {
-    max-width: 310px;
+    max-width: 450px;
     min-width: 260px;
     width: 45%;
     position: relative;
@@ -176,7 +177,7 @@ footer {
     bottom: 125px;
     right: 40px;
   }
-  bottom: 110px;
+  bottom: 150px;
   right: 7px;
   display: flex;
   flex-flow: row; 
@@ -194,6 +195,7 @@ footer {
     flex-flow: row;
     flex-wrap: nowrap;
     flex-grow: 1;
+    display: inline-block;
     span {
       color: #FFF;
       border: 1px solid #FFF;
@@ -208,6 +210,7 @@ footer {
     flex-grow: 2;
     margin-left: 10px;
     transition: background 250ms linear; 
+    display: inline-block;
     h4 {
       font-weight: normal;
       font-size: $font-size-20;
@@ -231,7 +234,7 @@ footer {
  * Red Ribbon with App Name (bottom of hero image)
  */
 .ribbon {
-  background: rgba(239, 69, 62, 0.95);
+  background: rgba(239, 69, 62, 0.80);
   position: absolute;
   bottom: 0;
   left: 0;
@@ -239,23 +242,46 @@ footer {
   z-index: 20;
   .r-title {
     text-align: center;
-    font-weight: 100;
+    font-weight: 300;
     @include mobile-landscape-and-up() {
       font-size: $font-size-40;
     }
     font-size: $font-size-24;
-    color: $white;
+    color: #FAFAFA;
     margin: 15px 0;
     .r-logo {
       @include glg-logo();
       font-size: $font-size-14;
       margin-left: 5px;
     }
+    .go {
+      font-weight: 100; 
+      position: relative;
+      top: 2px;
+      font-size: 28px;
+      @include mobile-landscape-and-up() {
+        font-size: 45px;
+      }
+    }
     .slant {
       font-weight: 300;
       font-size: 1.1em;
       position: relative;
       top: 2px;
+    }
+    .beta {
+      color: #f93f3b;
+      font-weight: 900;
+      background: #fafafa;
+      padding: 8px 8px 2px 8px;
+      border-radius: 8px;
+      margin-left: 5px;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.10);
+      @include mobile-only {
+        display: block;
+        margin: 10px auto 0 auto; 
+        width: 90%;
+      }
     }
   }
 }
@@ -299,11 +325,21 @@ footer {
 .r2-title,
 .r3-title,
 .r4-title {
-  font-weight: 100;
-  font-size: $font-size-32;
+  font-weight: 300;
+  font-size: $font-size-28;
   @include tablet-portrait-and-up() {
-    font-size: $font-size-40;
+    font-size: $font-size-32;
   }
+}
+
+.r1-title,
+.r3-title {
+  color: #555; 
+}
+
+.r2-title,
+.r4-title {
+  color: #E6E6E6;
 }
 
 .r1-copy,
@@ -312,6 +348,9 @@ footer {
 .r4-copy {
   font-weight: 300;
   font-size: $font-size-18;
+  @include tablet-portrait-and-up() {
+    font-size: $font-size-20;
+  }
   line-height: 1.6;
 }
 
@@ -329,12 +368,19 @@ footer {
     }
     margin: 0 auto;
     .row1-copy {
+      width: 100%;
+      /*@include tablet-portrait-and-up() {
+        width: 70%;
+      }*/
       .r1-title {
         position: absolute;
       }
       .r1-copy {
         @include tablet-portrait-and-up() {
           margin-top: 100px;
+        }
+        .c-beta {
+          color: #f93f3b;
         }
         margin-top: 120px;
       }
@@ -515,6 +561,7 @@ footer {
     }
     .row4-copy {
       background-image: linear-gradient(#454545, #1F1F1F);
+      width: 100%;
       @include mobile-landscape-and-up() {
         padding: 100px 0;
       }
@@ -572,6 +619,14 @@ footer {
         font-weight: bold;
         margin-right: 10px;
       }
+      .a-beta {
+        background: #fafafa;
+        color: #f93f3b;
+        padding: 5px 8px 2px 8px;
+        border-radius: 4px;
+        margin-right: 3px;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+      }
     }
   }
   .action-container {
@@ -588,6 +643,15 @@ footer {
     padding: 15px 10px 15px 10px;
     text-align: center;
     border-radius: 0 8px 8px 0;
+  }
+
+  .fapp-btn {
+    a {
+      position: relative;
+      top: 5px;
+      left: 5px;
+      margin: 0;
+    }
   }
 
   .fapp-btn {
