@@ -369,8 +369,9 @@ footer {
   .row1-container {
     @include mobile-landscape-and-up() {
       margin: 100px auto;
+      margin: 30px auto;
     }
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
     .row1-copy {
       width: 100%;
       /*@include tablet-portrait-and-up() {
@@ -560,7 +561,10 @@ footer {
         padding: 50px;
         min-width: 300px;
         max-width: 400px;
-        width: 75%;
+        width: 100%;
+        @include mobile-landscape-and-up {
+          width: 75%;
+        }
       }
     }
     .row4-copy {
