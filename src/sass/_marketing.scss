@@ -224,8 +224,19 @@ footer {
       padding: 0;
     }
     .iphone-only {
-      font-size: $font-size-12;
+      font-size: $font-size-14;
       text-align: left;
+      margin-left: 20px;
+      &:after {
+        content: "";
+        background: url('../images/marketing/Apple_Logo@3x.png') no-repeat center center;
+        background-size: 13px;
+        height: 20px;
+        width: 15px; 
+        position:absolute;
+        top: 11px;
+        left: 100px;
+      }
     }
   }
   &:hover {
@@ -672,7 +683,7 @@ footer {
     border-radius: 8px;
     padding: 5px 10px 10px 0px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.15);
-    width: 65%;
+    width: 70%;
     margin: 0 auto;
     .icon-container {
       display: inline-block;
@@ -702,8 +713,21 @@ footer {
         margin: 0;
       }
       .iphone-only {
-        font-size: $font-size-10;
+        font-size: 11px;
         text-align: left;
+        position: relative;
+        top: 1px;
+        margin-left: 16px;
+        &:before {
+          content: "";
+          background: url('../images/marketing/Apple_Logo@3x.png') no-repeat center center;
+          background-size: 10px;
+          height: 15px;
+          width: 15px; 
+          position: absolute;
+          top: -3px;
+          left: -17px;
+        }
       }
     }
   }
