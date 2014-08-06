@@ -190,6 +190,7 @@ footer {
   @include mobile-landscape-and-up() {
     border: 1px solid #FFF;
     background: transparent;
+    display: none;
   }
   .icon-container {
     flex-flow: row;
@@ -633,9 +634,8 @@ footer {
       font-size: $font-size-18;
       text-align: center;
       @include tablet-portrait-and-up() {
-        text-align: left;
         font-size: $font-size-21;
-        margin: 38px 10px 19px 20px;
+        margin: 20px 10px 20px 20px;
       }
       margin: 23px 10px 19px 20px; 
       span {
@@ -653,6 +653,9 @@ footer {
     }
   }
   .action-container {
+    @include mobile-landscape-and-up() {
+      display: none;
+    }
     @include tablet-portrait-and-up() {
       flex-direction: row;
       flex-grow: 1;
