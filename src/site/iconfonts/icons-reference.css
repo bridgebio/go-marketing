@@ -2,38 +2,15 @@
 
 @font-face {
   font-family: "pmp-mobile-icons";
-  src:url("../iconfonts/pmp-mobile-icons.woff") format("woff"),
-      url("../iconfonts/pmp-mobile-icons.ttf") format("truetype");
+  src:url("pmp-mobile-icons.eot");
+  src:url("pmp-mobile-icons.eot?#iefix") format("embedded-opentype"),
+    url("pmp-mobile-icons.woff") format("woff"),
+    url("pmp-mobile-icons.ttf") format("truetype"),
+    url("pmp-mobile-icons.svg#pmp-mobile") format("svg");
   font-weight: normal;
   font-style: normal;
 
 }
-
-/*
- * ICON FONTS
- * --------------------------
- * settings and definitions.
- */
-.icon-alone {
-  display: inline-block;
-  text-decoration: none;
-}
-
-a.icon-alone {
-  color: $accent-color;
-}
-
-a.icon-alone:visited {
-  color: $accent-color;
-}
-
-.screen-reader-text {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-}
-
-/* Styles specifically for GO Mobile iconfonts */
 
 [data-icon]:before {
   font-family: "pmp-mobile-icons" !important;

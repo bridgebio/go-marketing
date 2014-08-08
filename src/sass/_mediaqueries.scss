@@ -1,0 +1,76 @@
+/*
+ * MARKETING WEBSITE 
+ * --------------------------
+ * Located here temporarily.  Until it lives standalone.
+ */
+
+/* 
+ * Media queries specifically for the marketing website.  
+ * Do not use the media queries located in _mediaqueries.scss.
+ * Those mixins are for the GO Mobile App only.
+ */
+
+// $q-mobile-portrait    : 320px !default;
+// $q-mobile-landscape   : 480px !default;
+// $q-tablet-portrait   : 768px !default;
+// $q-tablet-landscape : 1024px !default;
+// $q-desktop    : 1200px !default;
+ 
+$q-mobile-portrait : 20em !default;
+$q-mobile-landscape  : 30em !default;
+$q-tablet-portrait : 48em !default;
+$q-tablet-landscape  : 64em !default;
+$q-desktop   : 75em !default;
+
+// Both portrait and landscape
+@mixin mobile-only {
+  @media (max-width : $q-mobile-landscape) {
+    @content;
+  }
+}
+ 
+// Everything up to and including the portrait width of the phone
+// Since it's the smallest query it doesn't need a min
+@mixin mobile-portrait-only {
+  @media (max-width : $q-mobile-portrait) {
+    @content;
+  }
+}
+ 
+// Everything above and including the mobile portrait
+@mixin mobile-portrait-and-up {
+  @media (min-width : $q-mobile-portrait) {
+    @content;
+  }
+}
+ 
+// Everything above and including the mobile landscape width
+@mixin mobile-landscape-and-up {
+  @media only screen and (min-width : $q-mobile-landscape + .001) {
+    @content;
+  }
+}
+ 
+// Everything above and including the portrait width of the tablet
+@mixin tablet-portrait-and-up {
+  // @media only screen and (min-width : $mq-mobile-landscape + 1) {
+  @media only screen and (min-width : $q-tablet-portrait + .001) {
+    @content;
+  }
+}
+ 
+// Everything larger than portrait tablet
+@mixin tablet-landscape-and-up {
+  @media only screen and (min-width : $q-tablet-portrait + .001) {
+    @content;
+  }
+}
+ 
+// Everything larger than a landscape tablet
+@mixin desktop-and-up {
+  @media only screen and (min-width : $q-tablet-landscape + .001) {
+    @content;
+  }
+}
+
+/* ----- End of Media Query mixins ----- */
