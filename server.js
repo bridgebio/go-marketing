@@ -26,3 +26,8 @@ app.get('/', function(req, res, next) {
   res.render('index');
 });
 
+// Route for request page 
+app.get('/', function(req, res, next) {
+  res.render('request');
+});
+

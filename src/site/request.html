@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Request GO Mobile App</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <script type="text/javascript" src="scripts/marketing.js"></script>
+  </head>
+  <body>
+    <div class="success-overlay"></div>
+    <div class="success-dialog">
+      <div class="success-header">
+        <p>Welcome to </p>
+        <span class="r-logo">⌂</span><span class="slant">/</span><span class="go">GO Mobile</span>
+      </div>
+      <div class="success-body">
+        <p>Your GLG token is being generated.  An SMS message will be sent if you entered a cell number.  Otherwise an email will be delivered with a download link.</p>
+        <div class="btn home-btn"><a href="index.html">Back Home</a></div>
+        <div class="btn token-btn">Request another token</div>
+      </div>
+    </div>
+    <div class="request-container">
+
+      <div class="error-dialog">
+        <h2><span aria-span="hidden" data-icon="2"></span>Error</h2>
+        <p>Please enter a valid email address.</p>
+      </div>
+
+      <div class="center-request">
+        <div class="logo">
+          <a href="index.html">
+            <span class="r-logo">⌂</span>
+            <span class="slant">/</span>
+            <span class="go">GO Mobile</span>
+          </a>
+        </div>
+        <p>Request Token and App Download</p>
+        <form class="request-input">
+          <label>
+            <input type="email" name="email" placeholder="Email" title="Email">
+          </label>
+          <label>
+            <input type="phone" name="phone" placeholder="Phone Number" title="Phone Number">
+          </label>
+        </form>
+        <div class="tofs">
+          <input type="checkbox" name="vehicle" value="Car">
+          <p>Please read and agree to <a href="">terms of service.</a></p>
+        </div>
+
+        <div class="request-button">
+          <a href="#">
+            <div class="icon-container">
+              <span class="phone-icon" aria-hidden="true" data-icon="L"></span>
+            </div>
+            <div class="request-btn-copy">
+              <h4>Request App Download</h4>
+            </div>
+          </a>
+        </div> <!-- end of request-button -->
+      </div> <!-- request-container -->
+
+      <footer class="request-footer">
+        <div class="footer-container">
+          <ul class="footer-menu">
+            <li><a href="#">Our Mission</a></li>
+            <li><a href="#">Membership</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Newsroom</a></li>
+            <li><a href="#">Complience</a></li>
+          </ul>
+          <div class="footer-logo">© ⌂</div>
+        </div>
+      </footer>
+      <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(event) {
+          console.log("DOM fully loaded and parsed");
+          marketing.init();
+        });
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,82 +1,3 @@
-/* ******************************************************** */
-
-/*
- * MARKETING WEBSITE 
- * --------------------------
- * Located here temporarily.  Until it lives standalone.
- */
-
-/* 
- * Media queries specifically for the marketing website.  
- * Do not use the media queries located in _mediaqueries.scss.
- * Those mixins are for the GO Mobile App only.
- */
-
-// $q-mobile-portrait    : 320px !default;
-// $q-mobile-landscape   : 480px !default;
-// $q-tablet-portrait   : 768px !default;
-// $q-tablet-landscape : 1024px !default;
-// $q-desktop    : 1200px !default;
- 
-$q-mobile-portrait : 20em !default;
-$q-mobile-landscape  : 30em !default;
-$q-tablet-portrait : 48em !default;
-$q-tablet-landscape  : 64em !default;
-$q-desktop   : 75em !default;
-
-// Both portrait and landscape
-@mixin mobile-only {
-  @media (max-width : $q-mobile-landscape) {
-    @content;
-  }
-}
- 
-// Everything up to and including the portrait width of the phone
-// Since it's the smallest query it doesn't need a min
-@mixin mobile-portrait-only {
-  @media (max-width : $q-mobile-portrait) {
-    @content;
-  }
-}
- 
-// Everything above and including the mobile portrait
-@mixin mobile-portrait-and-up {
-  @media (min-width : $q-mobile-portrait) {
-    @content;
-  }
-}
- 
-// Everything above and including the mobile landscape width
-@mixin mobile-landscape-and-up {
-  @media only screen and (min-width : $q-mobile-landscape + .001) {
-    @content;
-  }
-}
- 
-// Everything above and including the portrait width of the tablet
-@mixin tablet-portrait-and-up {
-  // @media only screen and (min-width : $mq-mobile-landscape + 1) {
-  @media only screen and (min-width : $q-tablet-portrait + .001) {
-    @content;
-  }
-}
- 
-// Everything larger than portrait tablet
-@mixin tablet-landscape-and-up {
-  @media only screen and (min-width : $q-tablet-portrait + .001) {
-    @content;
-  }
-}
- 
-// Everything larger than a landscape tablet
-@mixin desktop-and-up {
-  @media only screen and (min-width : $q-tablet-landscape + .001) {
-    @content;
-  }
-}
-
-/* ----- End of Media Query mixins ----- */
-
 /*
  * Marketing/Brochure website styles.
  */
@@ -205,7 +126,7 @@ footer {
       font-size: $font-size-40;
     }
   }
-  .hero-btn-copy {
+  .mobile-btn-copy {
     flex-flow: row;
     flex-wrap: nowrap;
     flex-grow: 2;
@@ -243,6 +164,66 @@ footer {
   &:hover {
     transition: background 250ms linear; 
     background-image: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.08));
+  }
+}
+
+/* 
+ * Button for request app download
+ */
+.req-btn {
+  display: none;
+  @include mobile-landscape-and-up() {
+    display: none;
+  }
+  position: absolute;
+  bottom: 145px;
+  right: 40px;
+  background: linear-gradient(top, #F2635D, #E71C13);
+  border: 1px solid #FF1E18;
+  border-radius: 4px;
+  padding: 8px 0 6px 0;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.15);
+  width: 250px;
+  margin: 0 auto;
+  z-index: 10;
+  span {
+    position: relative;
+    right: 5px;
+    left: 10px;
+    font-size: 30px;
+    top: 3px;
+  }
+  p {
+    color: #FFF;
+    display: inline-block;
+    margin: 0;
+    font-weight: 900;
+    font-size: 1.125em;
+    margin-left: 14px;
+    position: relative;
+    bottom: 5px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.req-btn:focus,
+.req-btn:hover {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    //-webkit-box-shadow: 0 0 12px rgba(239, 64, 53, 0.6);
+    -webkit-box-shadow: 0 0 12px rgba(250, 250, 250, 0.2);
+  }
+  50% {
+    //-webkit-box-shadow: 0 0 12px rgba(239, 64, 53, 0.9);
+    -webkit-box-shadow: 0 0 12px rgba(250, 250, 250, 0.9);
+  }
+  100% {
+    //-webkit-box-shadow: 0 0 12px rgba(239, 64, 53, 0.6);
+    -webkit-box-shadow: 0 0 12px rgba(250, 250, 250, 0.2);
   }
 }
 
@@ -683,7 +664,7 @@ footer {
   .fapp-btn {
     background: linear-gradient(top, #F2635D, #E71C13);
     border: 1px solid #FF1E18;
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 5px 10px 10px 0px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.15);
     width: 70%;
@@ -701,7 +682,7 @@ footer {
         padding: 14px 8px 0 8px
       } 
     }
-    .hero-btn-copy {
+    .mobile-btn-copy {
       display: inline-block;
       h4 {
         text-align: left;
