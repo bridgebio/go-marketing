@@ -747,10 +747,15 @@ footer {
         color: #BBBBBB;
         font-size: $font-size-14;
         text-decoration: none;
+        &:hover {
+          transition: color 350ms linear;
+          color: $accent-color;
+        }
       }
     }
   }
   .footer-logo {
+    cursor: pointer;
     color: #BBBBBB;
     flex-grow: 1;
     @include glg-logo();
@@ -762,6 +767,10 @@ footer {
     font-size: $font-size-16;
     margin: 16px 0;
     text-align: right;
+    &:hover {
+      transition: color 350ms linear;
+      color: $accent-color;
+    }
   }
 }
 
