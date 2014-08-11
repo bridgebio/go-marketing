@@ -16,7 +16,10 @@
   text-align: center;
   min-width: 300px;
   max-width: 400px;
-  height: 600px;
+  height: 500px;
+  @include mobile-landscape-and-up() {
+    height: 600px;
+  } 
   p {
     margin-top: 10px;
     color: #D8D8D8;
@@ -27,7 +30,10 @@
   .r-logo {
     @include glg-logo();
     color: #FAFAFA;
-    font-size: 40px;
+    font-size: 32px;
+    @include mobile-landscape-and-up() {
+      font-size: 35px;
+    }
     margin-left: 5px;
   }
   .go {
@@ -35,15 +41,18 @@
     font-weight: 100; 
     position: relative;
     top: 2px;
-    font-size: 48px;
-    /*@include mobile-landscape-and-up() {
+    font-size: 40px; 
+    @include mobile-landscape-and-up() {
       font-size: 45px;
-    }*/
+    }
   }
   .slant {
     color: $accent-color;
     font-weight: 300;
-    font-size: 50px;
+    font-size: 40px;
+    @include mobile-landscape-and-up() {
+      font-size: 45px;
+    }
     position: relative;
     top: 2px;
   } 
@@ -57,8 +66,27 @@
   right: 0;
 }
 
+/*input[type=text]:focus {
+  color: #FAFAFA;
+  border: 1px solid rgba(255, 255, 255, 1.0);
+  //outline: none;
+}*/
+
+textarea:focus, input[type="phone"]:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {   
+  //border-color: rgba(239, 64, 53, 0.8);
+  border-color: rgba(255, 255, 255, 0.5);
+  //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(239, 64, 53, 0.6);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(255, 255, 255, 0.6);
+  outline: 0 none;
+  /*:-webkit-input-placeholder {
+    margin-left: 5px;
+    color: #FAFAFA;
+    letter-spacing: 1px;
+  }*/
+}
+
 .request-input {
-  padding: 70px 0 20px 0;
+  padding: 50px 0 20px 0;
   label {
     input {
       font-weight: 900;
@@ -77,28 +105,29 @@
       border: 1px solid #4A4A4A;
       -moz-box-shadow:    inset 2px 2px 6px 4px rgba(0,0,0,0.20);
       box-shadow:         inset 2px 2px 6px 4px rgba(0,0,0,0.20);
+      transition: all 0.30s ease-in-out;
     }
     ::-webkit-input-placeholder {
       margin-left: 5px;
-      color: #FAFAFA;
+      color: #999;
       letter-spacing: 1px;
     }
 
-    :-moz-placeholder { /* Firefox 18- */
+    ::-moz-placeholder { /* Firefox 18- */
       margin-left: 5px;
-      color: #FAFAFA;  
+      color: #999;
       letter-spacing: 1px;
     }
 
     ::-moz-placeholder {  /* Firefox 19+ */
       margin-left: 5px;
-      color: #FAFAFA;  
+      color: #999;
       letter-spacing: 1px;
     }
 
     :-ms-input-placeholder {  
       margin-left: 5px;
-      color: #FAFAFA;  
+      color: #999;
       letter-spacing: 1px;
     }
   }
@@ -316,7 +345,7 @@
   margin: 0 auto;
   position: relative;
   p {
-    font-size: $font-size-20;
+    font-size: $font-size-18;
     padding: 30px 0;
     line-height: 1.4;
     margin: 10px 0;

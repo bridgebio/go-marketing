@@ -1,4 +1,6 @@
 var gulp          = require('gulp');
+var browserify    = require('gulp-browserify');
+var _             = require('lodash');
 var clean         = require('gulp-clean');
 var concat        = require('gulp-concat');
 var sass          = require('gulp-sass');
@@ -11,6 +13,14 @@ var paths = {
   site: ['src/site/**/*'],
   sass: ['src/sass/*.scss'],
 };
+
+gulp.task('scripts', function() {
+  gulp.src('src/site/scripts/marketing.js')
+    .pipe(browserify({
+      insertGlobals: true
+    }))
+    .pipe(gulp.dest('./build/scripts'))
+});
 
 gulp.task('site', function() {
   return gulp.src(paths.site)

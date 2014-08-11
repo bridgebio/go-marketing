@@ -51,7 +51,7 @@ footer {
 
 .hero-copy {
   text-align: center;
-  z-index: 999;
+  z-index: 2;
   position: relative;
   margin-bottom: 25px;
   padding-top: 15px;
@@ -173,7 +173,7 @@ footer {
 .req-btn {
   display: none;
   @include mobile-landscape-and-up() {
-    display: none;
+    display: block;
   }
   position: absolute;
   bottom: 145px;
@@ -758,15 +758,15 @@ footer {
     cursor: pointer;
     color: #BBBBBB;
     flex-grow: 1;
+    font-size: $font-size-16;
+    text-align: center;
     @include glg-logo();
     @include mobile-landscape-and-up() {
-      font-size: $font-size-20;
       flex-direction: row;
+      text-align: right;
     }
     flex-direction: column;
-    font-size: $font-size-16;
     margin: 16px 0;
-    text-align: right;
     &:hover {
       transition: color 350ms linear;
       color: $accent-color;

@@ -4,10 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Introducing GLG/GO Mobile Beta</title>
     <link rel="stylesheet" href="css/main.css" type="text/css">
-    <script></script>
+    <script type="text/javascript" src="scripts/marketing.js"></script>
   </head>
   <body>
     <div class="site-container">
+      <div class="error-dialog"></div>
       <div class="marketing-container">
         <div class="hero">
           <div class="hero-copy">
@@ -17,14 +18,14 @@
           <div class="hero-product"><img src="images/marketing/go_menu_update.png"></div>
 
           <div class="hero-app-btn">
-            <a href="itms-services://?action=download-manifest&url=https://services.glgresearch.com/go-marketing/Go.plist">
+            <a href="download">
               <div class="icon-container">
                 <span class="phone-icon" aria-hidden="true" data-icon="L"></span>
               </div>
               <div class="mobile-btn-copy">
-                  <p class="iphone-only">iPhone Only</p>
-                  <h4>Download</h4>
-                  <p>GO Mobile Beta</p>
+                <p class="iphone-only">iPhone Only</p>
+                <h4>Download</h4>
+                <p>GO Mobile Beta</p>
               </div>
             </a>
           </div>
@@ -134,6 +135,11 @@
         </div>
       </footer>
     </div> <!-- end of site-container -->
-   
+
+    <script id="error-template" type="text/html">
+      <h2><span aria-span="hidden" data-icon="2"></span>Error</h2>
+      <p>Please enter a valid email address.</p>
+    </script> 
+
   </body>
 </html>

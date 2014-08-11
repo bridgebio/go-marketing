@@ -1,6 +1,9 @@
 var marketing = {
   init: function() {
 
+    // For request token page, cell number should be the focus input.
+    document.querySelector('#cell').focus();
+
     // Setup on-click event listener for App Download Button
     var $appDownloadBtn = document.querySelector('.request-button');
     var $successOverlay = document.querySelector('.success-overlay');
