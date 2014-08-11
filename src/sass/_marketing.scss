@@ -173,7 +173,7 @@ footer {
 .req-btn {
   display: none;
   @include mobile-landscape-and-up() {
-    display: block;
+    display: none;
   }
   position: absolute;
   bottom: 145px;

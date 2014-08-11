@@ -37,13 +37,12 @@ app.get('/download', function(req, res, next) {
 
   // Android is used or desktop.  Display notification or error dialog.
   //res.send(200, 'Unsupported mobile platform');
-  res.json( {
+  res.json(501, {
     unsupported: {
       title: 'Unsupported Mobile Device',
       message: 'You are using an unsupported mobile device. GLG/GO Mobile only supports the iPhone.'
     }
   });
-  res.render('index');
 
 });
 

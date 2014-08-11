@@ -1,29 +1,31 @@
-var marketing = {
-  init: function() {
+var request = require('browser-request');
+var _ = require('lodash');
 
-    // For request token page, cell number should be the focus input.
-    document.querySelector('#cell').focus();
+document.addEventListener("DOMContentLoaded", function(e) {
+  e.preventDefault();
+  console.log("DOM fully loaded and parsed");
+  var $mobileDownload = document.querySelector('#mobileDownload'); 
 
-    // Setup on-click event listener for App Download Button
-    var $appDownloadBtn = document.querySelector('.request-button');
-    var $successOverlay = document.querySelector('.success-overlay');
-    var $successDialog = document.querySelector('.success-dialog');
-    var $tokenBtn = document.querySelector('.token-btn');
+  $mobileDownload.addEventListener('click', function(e) {
+    e.preventDefault();
+    console.log('init download');
+    request('http://localhost:5001/download', function(er, res, body) {
+      console.log('download response...', res);
 
-    $appDownloadBtn.addEventListener('click', function(e) {
-      $successOverlay.classList.add('show');
-      $successDialog.classList.add('show');
-    });
+      if (er) {
+        throw er;
+      } 
 
-    $successOverlay.addEventListener('click', function(e) {
-      this.classList.remove('show');
-      $successDialog.classList.remove('show');
-    });
+      if (res.status === 501) {
+        console.log('encountered 501... display error');
+        var $errorDialog = document.querySelector('.error-dialog');
+        console.log('errorDialog', $errorDialog);
+        var $errorTemplate = document.querySelector('#errorTemplate');
+        console.log('errorTemplate', $errorTemplate);
+        // Load error dialog template
+        //$errorDialog.append( _.template() );
+      }
 
-    $tokenBtn.addEventListener('click', function(e) {
-      $successOverlay.classList.remove('show');
-      $successDialog.classList.remove('show');
-    });
-
-  } 
-}
+    })
+  });
+});
