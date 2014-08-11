@@ -54,3 +54,27 @@ app.get('/download', function(req, res, next) {
 
 });
 
+app.post('/sms-me', function(req, res) {
+  if (!req.body) {
+    return res.send(400, 'No post body');
+  }
+  var phone = req.body.phone;
+  if (!phone) { //TODO: validate phone
+    return res.send(400, 'No phone in post body');
+  }
+  var accountSid = process.env.TWILIO_SID;
+  var authToken = process.env.TWILIO_AUTH;
+  var client = require('twilio')(accountSid, authToken);
+   
+  client.messages.create({
+    body: 'Click http://goo.gl/1M9aZ3 to download Go Mobile.',
+    to: phone,
+    from: '+16464930828'
+  }, function(err, message) {
+    console.log(message);
+    if (err) {
+      return res.send(500, 'Unable to send sms text');
+    }
+    return res.send(200);
+  });
+})
