@@ -45,13 +45,6 @@ app.get('/download', function(req, res, next) {
   });
   res.render('index');
 
-  /*res.render('index', { 
-    unsupported: {
-      title: 'Unsupported Mobile Device',
-      message: 'You are using an unsupported mobile device. GLG/GO Mobile only supports the iPhone.'
-    }
-  });*/
-
 });
 
 app.post('/sms-me', function(req, res) {
