@@ -16,7 +16,7 @@ var paths = {
 };
 
 gulp.task('scripts', function() {
-  gulp.src('src/site/scripts/marketing.js')
+  gulp.src(paths.scripts)
     .pipe(browserify({
       insertGlobals: true
     }))
