@@ -732,8 +732,10 @@ footer {
   flex-flow: column;
   .footer-menu {
     list-style-type: none;
+    text-align: center;
     @include mobile-landscape-and-up() {
       flex-direction: row;
+      text-align: left;
     }
     flex-direction: column;
     flex-grow: 2;
