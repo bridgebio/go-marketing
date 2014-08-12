@@ -106,6 +106,7 @@ textarea:focus, input[type="phone"]:focus, input[type="text"]:focus, input[type=
       -moz-box-shadow:    inset 2px 2px 6px 4px rgba(0,0,0,0.20);
       box-shadow:         inset 2px 2px 6px 4px rgba(0,0,0,0.20);
       transition: all 0.30s ease-in-out;
+      -webkit-font-smoothing: antialiased;
     }
     ::-webkit-input-placeholder {
       margin-left: 5px;

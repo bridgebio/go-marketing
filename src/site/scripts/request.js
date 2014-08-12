@@ -1,7 +1,10 @@
-var request = {
-  init: function() {
+var request = require('browser-request');
+var lo = require('lodash');
 
-    // For request token page, cell number should be the focus input.
+document.addEventListener("DOMContentLoaded", function(e) {
+  e.preventDefault();
+  console.log("DOM fully loaded and parsed");
+  // For request token page, cell number should be the focus input.
     document.querySelector('#cell').focus();
 
     // Setup on-click event listener for App Download Button
@@ -18,13 +21,13 @@ var request = {
     $successOverlay.addEventListener('click', function(e) {
       this.classList.remove('show');
       $successDialog.classList.remove('show');
+      document.querySelector('#cell').focus();
     });
 
     $tokenBtn.addEventListener('click', function(e) {
       $successOverlay.classList.remove('show');
       $successDialog.classList.remove('show');
+      document.querySelector('#cell').focus();
     });
+});
 
-
-  } 
-}
