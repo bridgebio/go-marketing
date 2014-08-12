@@ -29,11 +29,11 @@ app.get('/', function(req, res, next) {
 // Route for request page 
 app.get('/download', function(req, res, next) {
   var agent = req.get('user-agent');
+  var redirectUrl = 'itms-services://?action=download-manifest&url=https://services.glgresearch.com/go-marketing/Go.plist'; 
   if ( agent.match(/iPhone/) ) {
-    console.log('redirect...', agent);
-    return res.redirect('itms-services://?action=download-manifest&url=https://services.glgresearch.com/go-marketing/Go.plist');
+    //return res.redirect('itms-services://?action=download-manifest&url=https://services.glgresearch.com/go-marketing/Go.plist');
+    res.json(200, {redirect: redirectUrl});
   } else {
-    console.log('unsupported mobile browser...');
     // Android is used or desktop.  Display notification or error dialog.
     //res.send(200, 'Unsupported mobile platform');
     res.json(501, {

@@ -15,7 +15,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
         throw er;
       } 
 
-      if (res.status === 501) {
+      if (res.status === 200) {
+        var msg = JSON.parse(res.body);
+        // reload the page with redirect to download GO mobile app.
+        window.location = msg.redirect;
+      }
+      else if (res.status === 501) {
         // Display error dialog for 501 response code.
         var errorResponse = JSON.parse(res.body);
         var $errorDialog = document.querySelector('.error-dialog');
@@ -27,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
           $errorDialog.classList.remove('show'); 
         }, 8000);
       }
+
 
     }.bind(this));
   });
