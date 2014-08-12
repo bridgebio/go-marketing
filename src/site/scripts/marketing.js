@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         var $errorTemplate = document.querySelector('#errorTemplate');
         console.log('errorTemplate', $errorTemplate);
         // Load error dialog template
-        //$errorDialog.append( _.template() );
+        //$errorDialog.append( _.template($errorTemplate.html()) );
       }
 
     })
