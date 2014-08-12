@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   $mobileDownload.addEventListener('click', function(e) {
     e.preventDefault();
     //request('http://localhost:5001/download', function(er, res, body) {
-    request('https://services.glgresearch.com/go-marketing', function(er, res, body) {
+    request('https://services.glgresearch.com/download', function(er, res, body) {
 
       if (er) {
         throw er;
