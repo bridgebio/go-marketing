@@ -22,10 +22,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
         var $errorTemplate = document.querySelector('#errorTemplate');
         $errorDialog.innerHTML = lo.template($errorTemplate.innerHTML, {title: errorResponse.unsupported.title, message: errorResponse.unsupported.message});
         $errorDialog.classList.add('show'); 
-        // Remove the error dialog after 10 seconds.
+        // Remove the error dialog after 8 seconds.
         window.setTimeout(function() {
           $errorDialog.classList.remove('show'); 
-        }, 10000);
+        }, 8000);
       }
 
     }.bind(this));

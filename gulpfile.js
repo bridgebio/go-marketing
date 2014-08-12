@@ -20,7 +20,7 @@ gulp.task('scripts', function() {
     .pipe(browserify({
       insertGlobals: true
     }))
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('./build/scripts'))
 });
 

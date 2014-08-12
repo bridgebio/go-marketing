@@ -214,13 +214,12 @@ textarea:focus, input[type="phone"]:focus, input[type="text"]:focus, input[type=
  * Error dialog
  */
 .error-dialog {
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   background: red;
-  width: 300px;
+  width: 310px;
   margin: auto;
   border-radius: 4px;
   background-image: -o-linear-gradient(-89deg, #F8F8F8 3%, #F9F9F9 53%, #F8F8F8 100%);
@@ -231,28 +230,32 @@ textarea:focus, input[type="phone"]:focus, input[type="text"]:focus, input[type=
   -moz-box-shadow:    0px 2px 4px 0px rgba(0,0,0,0.50);
   box-shadow:         0px 2px 4px 0px rgba(0,0,0,0.50);
   border-radius: 0 0 4px 4px;
+  transform: translate3d(0, -110px, 0);
+  transition: transform 300ms ease;
+  z-index: 3;
   h2 {
     text-align: center;
     margin: 10px 0;
     padding: 0;
-    font-weight: 500;
+    font-weight: 900;
     color: $accent-color;
-    text-transform: uppercase;
-    font-size: $font-size-18;
+    font-size: $font-size-16;
     span {
+      font-size: $font-size-24;
       position: relative;
-      top: 2px;
+      top: 5px;
     }
   }
   p {
+    font-size: 14px;
+    margin: 0 10px 15px 10px;
     text-align: center;
-    margin: 0 0 15px 0;
   }
 }
 
 .error-dialog.show {
-  display: block;
-  z-index: 3;
+  transform: translate3d(0, 0px, 0);
+  transition: transform 300ms ease;
 }
 
 
