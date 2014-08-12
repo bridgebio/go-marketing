@@ -349,7 +349,7 @@ footer {
 .r4-copy {
   font-weight: 300;
   font-size: $font-size-18;
-  @include tablet-portrait-and-up() {
+  @include tablet-landscape-and-up() {
     font-size: $font-size-20;
   }
   line-height: 1.6;
@@ -478,6 +478,7 @@ footer {
 .row3 {
   background: #FAFAFA;
   margin: 0 auto;
+  margin-bottom: -8px;
   .row3-copy {
     .r3-title,
     .r3-copy {
@@ -486,6 +487,11 @@ footer {
       }
       width: 95%;
     }    
+    .r3-title {
+      @include tablet-landscape-and-up() {
+        padding-top: 50px;
+      }
+    }
   }
   .row3-img {
     @include tablet-portrait-and-up() {

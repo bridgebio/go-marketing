@@ -18,7 +18,7 @@
  
 $q-mobile-portrait : 20em !default;
 $q-mobile-landscape  : 30em !default;
-$q-tablet-portrait : 48em !default;
+$q-tablet-portrait : 47.938em !default;
 $q-tablet-landscape  : 64em !default;
 $q-desktop   : 75em !default;
 
@@ -54,14 +54,14 @@ $q-desktop   : 75em !default;
 // Everything above and including the portrait width of the tablet
 @mixin tablet-portrait-and-up {
   // @media only screen and (min-width : $mq-mobile-landscape + 1) {
-  @media only screen and (min-width : $q-tablet-portrait + .001) {
+  @media only screen and (min-width : $q-tablet-portrait) {
     @content;
   }
 }
  
 // Everything larger than portrait tablet
 @mixin tablet-landscape-and-up {
-  @media only screen and (min-width : $q-tablet-portrait + .001) {
+  @media only screen and (min-width : $q-tablet-landscape) {
     @content;
   }
 }
