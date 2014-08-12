@@ -5,10 +5,11 @@ var clean         = require('gulp-clean');
 var concat        = require('gulp-concat');
 var sass          = require('gulp-sass');
 var autoprefixer  = require('gulp-autoprefixer');
+var uglify        = require('gulp-uglify');
 
 var paths = {
   build: 'build/',
-  scripts: ['src/js/**/*.js', 'src/vendor/**/*.js'],
+  scripts: ['src/site/scripts/**/*.js'],
   html: ['src/**/*.html'],
   site: ['src/site/**/*'],
   sass: ['src/sass/*.scss'],
@@ -19,6 +20,7 @@ gulp.task('scripts', function() {
     .pipe(browserify({
       insertGlobals: true
     }))
+    .pipe(uglify())
     .pipe(gulp.dest('./build/scripts'))
 });
 
