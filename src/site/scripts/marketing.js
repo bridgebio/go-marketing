@@ -1,5 +1,5 @@
 var request = require('browser-request');
-var _ = require('lodash');
+var lo = require('lodash');
 
 document.addEventListener("DOMContentLoaded", function(e) {
   e.preventDefault();
@@ -8,24 +8,26 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
   $mobileDownload.addEventListener('click', function(e) {
     e.preventDefault();
-    console.log('init download');
-    request('http://localhost:5001/download', function(er, res, body) {
-      console.log('download response...', res);
+    //request('http://localhost:5001/download', function(er, res, body) {
+    request('https://services.glgresearch.com/go-marketing', function(er, res, body) {
 
       if (er) {
         throw er;
       } 
 
       if (res.status === 501) {
-        console.log('encountered 501... display error');
+        // Display error dialog for 501 response code.
+        var errorResponse = JSON.parse(res.body);
         var $errorDialog = document.querySelector('.error-dialog');
-        console.log('errorDialog', $errorDialog);
         var $errorTemplate = document.querySelector('#errorTemplate');
-        console.log('errorTemplate', $errorTemplate);
-        // Load error dialog template
-        //$errorDialog.append( _.template($errorTemplate.html()) );
+        $errorDialog.innerHTML = lo.template($errorTemplate.innerHTML, {title: errorResponse.unsupported.title, message: errorResponse.unsupported.message});
+        $errorDialog.classList.add('show'); 
+        // Remove the error dialog after 10 seconds.
+        window.setTimeout(function() {
+          $errorDialog.classList.remove('show'); 
+        }, 10000);
       }
 
-    })
+    }.bind(this));
   });
 });
