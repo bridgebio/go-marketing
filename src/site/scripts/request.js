@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     } else {
       var errorMsg = {
         title: 'Invalid Email Format',
-        message: 'Please enter a valid '
+        message: 'Please enter a valid email address.'
       }
       showErrorDialog(errorMsg);
       document.querySelector('#cell').focus();
