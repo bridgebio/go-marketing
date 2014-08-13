@@ -14,7 +14,6 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // Normalize the URL by stripping off the trailing / and .html
 //app.use(middleware.normalizeUrl());
-
 app.use(express.static(path.join(__dirname, 'build')));
 var server = http.createServer(app);
 server.listen(app.get('port'), function() {
@@ -30,7 +29,7 @@ app.get('/', function(req, res, next) {
 app.get('/download', function(req, res, next) {
   var agent = req.get('user-agent');
   var redirectUrl = 'itms-services://?action=download-manifest&url=https://services.glgresearch.com/go-marketing/Go.plist'; 
-  if ( agent.match(/iPhone/) ) {
+  if ( agent.match(/(iPhone|iPad|iPod)/) ) {
     res.json(200, {redirect: redirectUrl});
   } else {
     res.json(501, {
@@ -40,8 +39,6 @@ app.get('/download', function(req, res, next) {
       }
     });
   }
-
-
 });
 
 app.post('/sms-me', function(req, res) {
