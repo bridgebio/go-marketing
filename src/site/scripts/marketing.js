@@ -3,18 +3,28 @@ var lo = require('lodash');
 
 document.addEventListener("DOMContentLoaded", function(e) {
   e.preventDefault();
-  console.log("DOM fully loaded and parsed");
+
+  // Download button located on the feature image of the marketing website (mobile only).
   var $mobileDownload = document.querySelector('#mobileDownload'); 
+  // Download button located in the footer (mobile only).
+  var $footerMobileDownload = document.querySelector('#footerDownloadBtn');
 
   $mobileDownload.addEventListener('click', function(e) {
     e.preventDefault();
+    executeDownload();
+  });
+
+  $footerMobileDownload.addEventListener('click', function(e) {
+    e.preventDefault();
+    executeDownload();
+  });
+
+  function executeDownload() {
     //request('http://localhost:5001/download', function(er, res, body) {
     request('http://services.glgresearch.com/go-marketing/download', function(er, res, body) {
-
       if (er) {
         throw er;
       } 
-
       if (res.status === 200) {
         var msg = JSON.parse(res.body);
         // reload the page with redirect to download GO mobile app.
@@ -32,8 +42,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
           $errorDialog.classList.remove('show'); 
         }, 8000);
       }
-
-
-    }.bind(this));
-  });
+    });
+  }
 });
