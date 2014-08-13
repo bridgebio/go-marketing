@@ -22,7 +22,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
   var $notificationTemplate = document.querySelector('#notificationTemplate');
 
   // For request token page, cell number should be highlighted and ready for input.
+  // Blank out all form fields (both email and cell phone).
   $cellInput.focus();
+  $cellInput.form.reset();
+  $emailInput.form.reset();
 
   $appDownloadBtn.addEventListener('click', function(e) {
     e.preventDefault();
