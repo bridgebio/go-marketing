@@ -4,6 +4,7 @@
 
 .site-container {
   background: #FFF;
+  min-width: 320px;
 }
 
 /* Constraints for each row */
@@ -241,14 +242,13 @@ footer {
     text-align: center;
     font-weight: 300;
     @include mobile-landscape-and-up() {
-      font-size: $font-size-40;
+      font-size: $font-size-32;
     }
     font-size: $font-size-24;
     color: #FAFAFA;
     margin: 15px 0;
     .r-logo {
       @include glg-logo();
-      font-size: $font-size-14;
       margin-left: 5px;
     }
     .go {
@@ -257,12 +257,12 @@ footer {
       top: 2px;
       font-size: 28px;
       @include mobile-landscape-and-up() {
-        font-size: 45px;
+        font-size: 40px;
       }
     }
     .slant {
       font-weight: 300;
-      font-size: 1.1em;
+      font-size: 42px;
       position: relative;
       top: 2px;
     }
