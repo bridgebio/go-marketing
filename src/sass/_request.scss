@@ -89,14 +89,13 @@ textarea:focus, input[type="phone"]:focus, input[type="text"]:focus, input[type=
   padding: 50px 0 20px 0;
   label {
     input {
-      font-weight: 900;
+      font-weight: normal;
       font-size: $font-size-18;
       color: #FAFAFA;
       margin-bottom: 20px;
       box-shadow: inset rgba(0,0,0,0.2) 0 2px 5px,inset rgba(0,0,0,0.35) 0 1px 1px,inset rgba(0,0,0,0.3) 0 0 2px;
       width: 100%;
       padding: 15px 5px 10px 15px;
-      text-transform: uppercase;
       border: 1px solid #4A4A4A;
       background-image: -o-linear-gradient(-89deg, rgba(102,102,102,0.99) 0%, #2F2F2F 100%);
       background-image: -moz-linear-gradient(-89deg, rgba(102,102,102,0.99) 0%, #2F2F2F 100%);
@@ -215,7 +214,7 @@ textarea:focus, input[type="phone"]:focus, input[type="text"]:focus, input[type=
  * Error dialog
  */
 .error-dialog {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;

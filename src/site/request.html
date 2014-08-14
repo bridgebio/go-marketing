@@ -21,10 +21,7 @@
     </div>
     <div class="request-container">
 
-      <div class="error-dialog">
-        <h2><span aria-span="hidden" data-icon="2"></span>Error</h2>
-        <p>Please enter a valid email address.</p>
-      </div>
+      <div class="error-dialog"></div>
 
       <div class="center-request">
         <div class="logo">
@@ -73,5 +70,18 @@
         </div>
       </footer>
     </div>
+
+    <-- Start of Micro-Templating -->
+    <script id="notificationTemplate" type="text/html">
+      <h2>
+        <span aria-span="hidden" data-icon="2"></span>
+        <%= title %> 
+      </h2>
+      <p><%= message %></p>
+    </script> 
+
+
+
+
   </body>
 </html>
