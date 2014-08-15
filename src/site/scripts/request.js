@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   var $emailInput = document.querySelector('#email');
   var $errorDialog = document.querySelector('.error-dialog');    
   var $notificationTemplate = document.querySelector('#notificationTemplate');
+  var $downloadForm = document.querySelector('.request-input');
 
   // For request token page, cell number should be highlighted and ready for input.
   // Blank out all form fields (both email and cell phone).
@@ -27,9 +28,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
   $cellInput.form.reset();
   $emailInput.form.reset();
 
-  $appDownloadBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-
+  $downloadForm.addEventListener('submit', function(e) {
+    //e.preventDefault();
     var cell = $cellInput.value;
     var email = $emailInput.value;
 
@@ -39,16 +39,22 @@ document.addEventListener("DOMContentLoaded", function(e) {
         // TODO: Submit request with endpoint here.
         // success dialog will normally be wrapped within response callback from server.
         showSuccessDialog();
-      } 
+      } else {
+        e.preventDefault();
+      }
     } 
 
-    if (email !== "") {
+    // Only validate email and process if no cell number has been given.
+    // Cell number is given 1st priority.  
+    if (email !== "" && cell === "") {
       // Validate email address.
       if (validateEmail(email)) {
         // TODO: Submit request with endpoint.
         console.log('validate email address...');
         // success dialog will normally be wrapped within response callback from server.
         showSuccessDialog();
+      } else {
+        e.preventDefault();
       }
     }
 
@@ -59,8 +65,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
         message: 'You forgot to enter a cell number or email address.'
       }
       showErrorDialog(errorMsg);
+      e.preventDefault();
     }
-
   });
 
   $successOverlay.addEventListener('click', function(e) {

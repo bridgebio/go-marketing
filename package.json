@@ -15,7 +15,8 @@
     "twilio": "~1.6.0",
     "browser-request": "0.3.2",
     "uglify-js": "2.4.15",
-    "gulp-uglify": "^0.3.1"
+    "gulp-uglify": "0.3.1",
+    "body-parser": "1.6.4"
   },
   "scripts": {
     "start": "gulp build && node server.js"

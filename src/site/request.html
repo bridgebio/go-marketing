@@ -32,30 +32,23 @@
           </a>
         </div>
         <p>Request Token and App Download</p>
-        <form class="request-input">
+        <form method="POST" action="sms-test" class="request-input">
           <label>
-            <input id="cell" type="phone" name="phone" placeholder="Cell Number" title="Cell Number">
+            <input id="cell" type="text" name="phone" placeholder="Cell Number" title="Cell Number">
           </label>
           <p>Or</p>
           <label>
-            <input id="email" type="email" name="email" placeholder="Email" title="Email">
+            <input id="email" type="text" name="email" placeholder="Email" title="Email">
           </label>
+          <!--<div class="tofs">
+            <input type="checkbox" name="vehicle" value="Car">
+            <p>Please read and agree to <a href="">terms of service.</a></p>
+          </div>-->
+          <div class="request-button">
+            <div class="icon-container"><span class="phone-icon" aria-hidden="true" data-icon="L"></span></div>
+            <input class="request-btn" id="button" type="submit" value="Request App Download">
+          </div>
         </form>
-        <!--<div class="tofs">
-          <input type="checkbox" name="vehicle" value="Car">
-          <p>Please read and agree to <a href="">terms of service.</a></p>
-        </div>-->
-
-        <div class="request-button">
-          <a href="#">
-            <div class="icon-container">
-              <span class="phone-icon" aria-hidden="true" data-icon="L"></span>
-            </div>
-            <div class="request-btn-copy">
-              <h4>Request App Download</h4>
-            </div>
-          </a>
-        </div> <!-- end of request-button -->
       </div> <!-- request-container -->
 
       <footer class="request-footer">

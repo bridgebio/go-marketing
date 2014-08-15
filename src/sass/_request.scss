@@ -159,13 +159,14 @@ textarea:focus, input[type="phone"]:focus, input[type="text"]:focus, input[type=
   border-radius: 4px;
   padding: 5px 10px 10px 0px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.15);
-  width: 85%;
-  margin: 0 auto;
-  //transition: all 300ms linear;
+  margin: 20px auto 0 auto;
+  position: relative;
+  width: 300px;
   .icon-container {
     display: inline-block;
     position: relative;
     top: 8px;
+    left: -92px;
     margin-right: 5px;
     span {
       color: $white;
@@ -174,6 +175,22 @@ textarea:focus, input[type="phone"]:focus, input[type="text"]:focus, input[type=
       border-radius: 50px;
       padding: 14px 8px 0 8px
     } 
+  }
+  .request-btn {
+    color: #FAFAFA;
+    padding: 0;
+    background: transparent;
+    border: none;
+    font-weight: 300;
+    font-size: $font-size-20;
+    -webkit-font-smoothing: antialiased;
+    padding: 17px 25px 14px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: right;
+
   }
   .request-btn-copy {
     display: inline-block;

@@ -18,7 +18,8 @@ var paths = {
 gulp.task('scripts', function() {
   gulp.src(paths.scripts)
     .pipe(browserify({
-      insertGlobals: true
+      insertGlobals: true,
+      debug: true
     }))
     .pipe(uglify())
     .pipe(gulp.dest('./build/scripts'))
