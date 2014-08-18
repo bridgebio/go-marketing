@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     var cell = $cellInput.value;
     var options = {
       method: 'POST', 
-      url: '../sms-me',
+      url: '/sms-me',
       body: JSON.stringify({phone: cell}),
       json: true
     }
