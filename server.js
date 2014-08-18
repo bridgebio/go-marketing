@@ -27,8 +27,8 @@ app.get('/', function(req, res, next) {
   res.render('index');
 });
 
-// Route for request page 
-app.get('/download', function(req, res, next) {
+
+app.get('/download-request', function(req, res, next) {
   var agent = req.get('user-agent');
   var redirectUrl = 'itms-services://?action=download-manifest&url=https://services.glgresearch.com/go-marketing/Go.plist'; 
   if ( agent.match(/(iPhone|iPad|iPod)/) ) {
@@ -40,6 +40,16 @@ app.get('/download', function(req, res, next) {
         message: 'You are using an unsupported mobile device. GLG/GO Mobile only supports the iPhone.'
       }
     });
+  }
+});
+
+// Route for request page 
+app.get('/download', function(req, res, next) {
+  var agent = req.get('user-agent');
+  if ( agent.match(/(iPhone|iPad|iPod)/) ) {
+    return res.redirect('itms-services://?action=download-manifest&url=https://services.glgresearch.com/go-marketing/Go.plist');
+  } else {
+    res.send(404, 'Unsupported platform');
   }
 });
 

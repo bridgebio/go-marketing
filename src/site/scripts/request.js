@@ -29,9 +29,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
   $emailInput.form.reset();
 
   $downloadForm.addEventListener('submit', function(e) {
-    //e.preventDefault();
     var cell = $cellInput.value;
-    var email = $emailInput.value;
+    //var email = $emailInput.value;
 
     if (cell !== "") {
       // Validate phone number format
@@ -46,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     // Only validate email and process if no cell number has been given.
     // Cell number is given 1st priority.  
-    if (email !== "" && cell === "") {
+    /*if (email !== "" && cell === "") {
       // Validate email address.
       if (validateEmail(email)) {
         // TODO: Submit request with endpoint.
@@ -56,10 +55,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
       } else {
         e.preventDefault();
       }
-    }
+    }*/
 
     // If both email and cell number fields are blank, notify the user.
-    if (email === "" && cell === "") {
+    if (cell === "") {
       var errorMsg = {
         title: 'Oops!',
         message: 'You forgot to enter a cell number or email address.'
