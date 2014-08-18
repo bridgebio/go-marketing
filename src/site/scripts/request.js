@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         // Phone number has been validated. Send POST request for sms message.
         var options = {
           method: 'POST', 
-          url: '/sms-me',
+          url: 'sms-me',
           body: JSON.stringify({phone: cell}),
           json: true
         }
