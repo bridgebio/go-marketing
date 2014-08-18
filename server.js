@@ -12,6 +12,7 @@ var app = module.exports = express();
 app.disable('x-powered-by');
 app.set('port', process.argv[2] || process.env.PORT || 5001);
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'build')));
 
 // Normalize the URL by stripping off the trailing / and .html
@@ -53,25 +54,11 @@ app.get('/download', function(req, res, next) {
   }
 });
 
-app.post('/sms-test', function(req, res) {
-  if (!req.body) {
-    res.json(400, {
-      title: 'Bad Request',
-      message: 'The request cannot be fulfilled due to bad syntax.' 
-    });
-    //return res.send(400, 'No post body');
-  }
-  console.log('req.body...', req.body);
-  var phone = req.body.phone;
-  var email = req.body.email;
-  res.json(req.body);
-});
-
 app.post('/sms-me', function(req, res) {
   if (!req.body) {
     return res.send(400, 'No post body');
   }
-  var phone = req.body.phone;
+  var phone = req.param('phone');
   if (!phone) { //TODO: validate phone
     return res.send(400, 'No phone in post body');
   }

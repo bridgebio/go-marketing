@@ -17,16 +17,33 @@ document.addEventListener("DOMContentLoaded", function(e) {
    * Get items from the DOM and cache them for future use.
    */
   var $cellInput = document.querySelector('#cell');  
-  var $emailInput = document.querySelector('#email');
+  //var $emailInput = document.querySelector('#email');
   var $errorDialog = document.querySelector('.error-dialog');    
   var $notificationTemplate = document.querySelector('#notificationTemplate');
   var $downloadForm = document.querySelector('.request-input');
+  var $downloadBtn = document.querySelector('.request-button');
 
   // For request token page, cell number should be highlighted and ready for input.
   // Blank out all form fields (both email and cell phone).
   $cellInput.focus();
   $cellInput.form.reset();
-  $emailInput.form.reset();
+  //$emailInput.form.reset();
+
+  $downloadBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    var cell = $cellInput.value;
+    var options = {
+      method: 'POST', 
+      url: '../sms-me',
+      body: JSON.stringify({phone: cell}),
+      json: true
+    }
+    console.log(options);
+    request(options, function(er, response, body) {
+      console.log('response..', response);
+      console.log('args..', arguments);
+    });
+  });
 
   $downloadForm.addEventListener('submit', function(e) {
     var cell = $cellInput.value;
