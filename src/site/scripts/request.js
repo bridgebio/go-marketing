@@ -32,49 +32,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   $downloadBtn.addEventListener('click', function(e) {
     e.preventDefault();
     var cell = $cellInput.value;
-    var options = {
-      method: 'POST', 
-      url: '/sms-me',
-      body: JSON.stringify({phone: cell}),
-      json: true
-    }
-    console.log(options);
-    request(options, function(er, response, body) {
-      console.log('response..', response);
-      console.log('args..', arguments);
-    });
-  });
 
-  $downloadForm.addEventListener('submit', function(e) {
-    var cell = $cellInput.value;
-    //var email = $emailInput.value;
-
-    if (cell !== "") {
-      // Validate phone number format
-      if (validatePhoneNumber(cell)) {
-        // TODO: Submit request with endpoint here.
-        // success dialog will normally be wrapped within response callback from server.
-        showSuccessDialog();
-      } else {
-        e.preventDefault();
-      }
-    } 
-
-    // Only validate email and process if no cell number has been given.
-    // Cell number is given 1st priority.  
-    /*if (email !== "" && cell === "") {
-      // Validate email address.
-      if (validateEmail(email)) {
-        // TODO: Submit request with endpoint.
-        console.log('validate email address...');
-        // success dialog will normally be wrapped within response callback from server.
-        showSuccessDialog();
-      } else {
-        e.preventDefault();
-      }
-    }*/
-
-    // If both email and cell number fields are blank, notify the user.
     if (cell === "") {
       var errorMsg = {
         title: 'Oops!',
@@ -83,6 +41,30 @@ document.addEventListener("DOMContentLoaded", function(e) {
       showErrorDialog(errorMsg);
       e.preventDefault();
     }
+
+    if (cell !== "") {
+      // Validate phone number format
+      if (validatePhoneNumber(cell)) {
+        // Phone number has been validated. Send POST request for sms message.
+        var options = {
+          method: 'POST', 
+          url: '/sms-me',
+          body: JSON.stringify({phone: cell}),
+          json: true
+        }
+        console.log(options);
+        request(options, function(er, response, body) {
+          console.log('response..', response);
+          console.log('args..', arguments);
+          if (response.status === 200) {
+            showSuccessDialog();
+          }
+        });
+      } else {
+        e.preventDefault();
+      }
+    } 
+
   });
 
   $successOverlay.addEventListener('click', function(e) {
