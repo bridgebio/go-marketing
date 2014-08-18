@@ -21,7 +21,7 @@ gulp.task('scripts', function() {
       insertGlobals: true,
       debug: true
     }))
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('./build/scripts'))
 });
 

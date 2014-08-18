@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   });
 
   function executeDownload() {
-    //request('http://localhost:5001/download', function(er, res, body) {
-    request('../download-request', function(er, res, body) {
+    request('/download-request', function(er, res, body) {
       if (er) {
         throw er;
       } 

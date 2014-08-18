@@ -16,9 +16,9 @@
   text-align: center;
   min-width: 300px;
   max-width: 400px;
-  height: 500px;
+  height: 350px;
   @include mobile-landscape-and-up() {
-    height: 600px;
+    height: 350px;
   } 
   p {
     margin-top: 10px;
@@ -94,7 +94,6 @@ textarea:focus, input[type="phone"]:focus, input[type="text"]:focus, input[type=
       color: #FAFAFA;
       margin-bottom: 20px;
       box-shadow: inset rgba(0,0,0,0.2) 0 2px 5px,inset rgba(0,0,0,0.35) 0 1px 1px,inset rgba(0,0,0,0.3) 0 0 2px;
-      width: 100%;
       padding: 15px 5px 10px 15px;
       border: 1px solid #4A4A4A;
       background-image: -o-linear-gradient(-89deg, rgba(102,102,102,0.99) 0%, #2F2F2F 100%);
@@ -106,6 +105,10 @@ textarea:focus, input[type="phone"]:focus, input[type="text"]:focus, input[type=
       box-shadow:         inset 2px 2px 6px 4px rgba(0,0,0,0.20);
       transition: all 0.30s ease-in-out;
       -webkit-font-smoothing: antialiased;
+      width: 300px;
+      @include mobile-landscape-and-up() {
+        width: 100%;
+      }
     }
     ::-webkit-input-placeholder {
       margin-left: 5px;
