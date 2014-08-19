@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     if (cell === "") {
       var errorMsg = {
         title: 'Oops!',
-        message: 'You forgot to enter a cell number or email address.'
+        message: 'You forgot to enter a cell phone number.'
       }
       showErrorDialog(errorMsg);
       e.preventDefault();
