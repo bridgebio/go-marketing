@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, 'build')));
 var server = http.createServer(app);
 server.listen(app.get('port'), function() {
+  console.log('start go-marketing...');
   console.log('server started on port: ' + app.get('port'));
 });
 
