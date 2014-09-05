@@ -16,6 +16,7 @@
   text-align: center;
   min-width: 300px;
   max-width: 400px;
+  width: 400px;
   height: 350px;
   @include mobile-landscape-and-up() {
     height: 350px;
@@ -158,6 +159,7 @@ textarea:focus, input[type="phone"]:focus, input[type="text"]:focus, input[type=
 
 .request-button {
   background: linear-gradient(top, #F2635D, #E71C13);
+  background: linear-gradient(to bottom right, #F2635D 0%, #E71C13 100%);
   border: 1px solid #FF1E18;
   border-radius: 4px;
   padding: 5px 10px 10px 0px;
@@ -322,6 +324,7 @@ textarea:focus, input[type="phone"]:focus, input[type="text"]:focus, input[type=
   margin: auto;
   text-align: center;
   min-width: 450px;
+  width: 600px;
   max-width: 600px;
   height: 350px;
 }
@@ -362,6 +365,7 @@ textarea:focus, input[type="phone"]:focus, input[type="text"]:focus, input[type=
 
 .btn {
   background: linear-gradient(top, #F2635D, #E71C13);
+  background: linear-gradient(to bottom right, #F2635D 0%, #E71C13 100%);
   border: 1px solid #FF1E18;
   border-radius: 4px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.15);

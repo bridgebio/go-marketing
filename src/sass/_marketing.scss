@@ -180,6 +180,7 @@ footer {
   bottom: 145px;
   right: 50px;
   background: linear-gradient(top, #F2635D, #E71C13);
+  background: linear-gradient(to bottom right, #F2635D 0%, #E71C13 100%);
   border: 1px solid #FF1E18;
   border-radius: 4px;
   padding: 8px 0 6px 0;
@@ -188,6 +189,7 @@ footer {
   margin: 0 auto;
   z-index: 10;
   span {
+    color: #FFF;
     position: relative;
     right: 5px;
     left: 10px;
@@ -292,6 +294,9 @@ footer {
 .row2-container,
 .row3-container,
 .row4-container {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -moz-box;
   display: flex;
   @include tablet-portrait-and-up() {
     flex-flow: row; 
@@ -670,6 +675,7 @@ footer {
   .fapp-btn {
     cursor: pointer;
     background: linear-gradient(top, #F2635D, #E71C13);
+    background: linear-gradient(to bottom right, #F2635D 0%, #E71C13 100%);
     border: 1px solid #FF1E18;
     border-radius: 4px;
     padding: 5px 10px 10px 0px;
