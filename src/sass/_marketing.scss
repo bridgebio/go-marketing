@@ -14,7 +14,7 @@
 .row4-container,
 .action-msg,
 footer {
-  width: 92%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -264,7 +264,10 @@ footer {
     }
     .slant {
       font-weight: 300;
-      font-size: 42px;
+      font-size: 30px;
+      @include mobile-landscape-and-up() {
+        font-size: 42px;
+      }
       position: relative;
       top: 2px;
     }
@@ -283,14 +286,13 @@ footer {
         background: none;
         color: #FFF;
         padding: 0;
-        text-transform: uppercase;
       }
     }
   }
 }
 
 /* Apply flexbox to the following rows */
-.row1-container,
+/*.row1-container,
 .row2-container,
 .row3-container,
 .row4-container {
@@ -324,7 +326,51 @@ footer {
     flex-wrap: nowrap;
     flex-grow: 1;
   }
-}  
+}  */
+
+
+
+/* Create columns the traditional way. No flexbox */
+.row1,
+.row2,
+.row3,
+.row4 {
+  box-sizing: border-box;
+}
+
+.row1-container,
+.row2-container,
+.row3-container,
+.row4-container {
+  box-sizing: border-box;
+  @include clearfix();
+}
+
+.row1-container,
+.row2-container,
+.row3-container {
+  margin: 0 auto;
+  width: 92%;
+}
+
+.row1-copy,
+.row1-img,
+.row2-copy,
+.row2-img,
+.row3-copy,
+.row3-img,
+.row4-copy,
+.row4-img {
+  float: none;
+  width: 100%;
+  @include tablet-portrait-and-up() {
+    float: left;
+    width: 50%; 
+  }
+}
+
+/* end of float based columns */
+
 
 /* Typography for each row copy */
 .r1-title,
@@ -375,21 +421,26 @@ footer {
     }
     margin: 0 auto 30px auto;
     .row1-copy {
-      width: 100%;
+      /*width: 100%; */
       /*@include tablet-portrait-and-up() {
         width: 70%;
       }*/
       .r1-title {
-        position: absolute;
+        @include tablet-portrait-and-up() {
+          position: absolute;
+        }
       }
       .r1-copy {
+        margin-top: 5px;
         @include tablet-portrait-and-up() {
           margin-top: 100px;
+        }
+        @include mobile-landscape-and-up() {
+          margin-top: 80px;
         }
         .c-beta {
           color: #f93f3b;
         }
-        margin-top: 80px;
       }
     }
     .row1-img {
@@ -458,7 +509,7 @@ footer {
 }
 
 .row2-img {
-  width: 85%;
+  //width: 85%;
   max-width: 450px;
   min-width: 350px;
   display: none;
@@ -488,7 +539,7 @@ footer {
     .r3-title,
     .r3-copy {
       @include mobile-landscape-and-up () {
-        width: 80%;
+        width: 95%;
       }
       width: 95%;
     }    
@@ -503,11 +554,12 @@ footer {
       display: block;
     }
     display: none;
-    min-width: 375px;
-    width: 85%;
+    //min-width: 375px;
+    /*width: 85%;*/
+    text-align: right;
     img {
-      max-width: 100%;
-      width: 100%;
+      max-width: 90%;
+      width: 90%;
     }
   }
   .row3-img-mobile {
@@ -527,9 +579,10 @@ footer {
 
 .row4 {
   .row4-container {
+    background-image: linear-gradient(#454545, #1F1F1F);
     position: relative;
     max-width: 100%;
-    width: 100%;
+    /*width: 100%;*/
     .row4-img-mobile {
       @include tablet-portrait-and-up() {
         display: none; 
@@ -546,9 +599,12 @@ footer {
     .row4-img-mobile {
       background: url('../images/NYC_background_1024_opt.jpg') no-repeat center center;
       background-size: cover;
-      padding: 50px 0;
-      width: 100%;
-      max-width: 100%;
+      //padding: 20px 0;
+      @include mobile-landscape-and-up() {
+        //padding: 74px 0;
+      }
+      /*width: 100%;*/
+      /*max-width: 100%;*/
       height: auto;
       z-index: 1;
       position: relative;
@@ -571,15 +627,15 @@ footer {
         max-width: 400px;
         width: 100%;
         @include mobile-landscape-and-up {
-          width: 75%;
+          width: 95%;
         }
       }
     }
     .row4-copy {
       background-image: linear-gradient(#454545, #1F1F1F);
-      width: 100%;
+      /*width: 100%;*/
       @include mobile-landscape-and-up() {
-        padding: 100px 0;
+        padding: 60px 0;
       }
       padding: 25px 0;
       .r4-title,
