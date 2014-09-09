@@ -626,14 +626,9 @@ footer {
         min-width: 300px;
         max-width: 400px;
         width: 100%;
-        @include mobile-landscape-and-up {
-          width: 95%;
-        }
       }
     }
     .row4-copy {
-      background-image: linear-gradient(#454545, #1F1F1F);
-      /*width: 100%;*/
       @include mobile-landscape-and-up() {
         padding: 60px 0;
       }
