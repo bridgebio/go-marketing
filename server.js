@@ -82,3 +82,7 @@ app.post('/sms-me', function(req, res) {
     return res.send(200);
   });
 })
+
+app.get('/launch', function(req, res) {
+  return res.redirect('glggo://bd1bff6e6ca803ffc20ae5c29f4005d9dfe1d504968a479e9e7eab2007bb528d');
+});
