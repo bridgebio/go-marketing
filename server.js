@@ -75,10 +75,13 @@ app.post('/sms-me', function(req, res) {
     to: phone,
     from: '+16464930828'
   }, function(err, message) {
-    console.log(message);
+    if (err && err.status === 400)  {
+      return res.send(400);
+    }
     if (err) {
       return res.send(500, 'Unable to send sms text');
     }
+    console.log(message);
     return res.send(200);
   });
 })

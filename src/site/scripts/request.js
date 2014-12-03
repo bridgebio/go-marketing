@@ -43,26 +43,29 @@ document.addEventListener("DOMContentLoaded", function(e) {
     }
 
     if (cell !== "") {
-      // Validate phone number format
-      if (validatePhoneNumber(cell)) {
-        // Phone number has been validated. Send POST request for sms message.
-        var options = {
-          method: 'POST', 
-          url: 'sms-me',
-          body: JSON.stringify({phone: cell}),
-          json: true
-        }
-        console.log(options);
-        request(options, function(er, response, body) {
-          console.log('response..', response);
-          console.log('args..', arguments);
-          if (response.status === 200) {
-            showSuccessDialog();
-          }
-        });
-      } else {
-        e.preventDefault();
+      // Send POST request for sms message.
+      var options = {
+        method: 'POST', 
+        url: 'sms-me',
+        body: JSON.stringify({phone: cell}),
+        json: true
       }
+      console.log(options);
+      request(options, function(er, response, body) {
+        console.log('response..', response);
+        console.log('args..', arguments);
+        if (response.status === 200) {
+          showSuccessDialog();
+        } else {
+          var errorMsg = {
+            title: 'Invalid Phone Number Format',
+            message: 'Please enter a valid phone number'
+          }
+          showErrorDialog(errorMsg);
+          document.querySelector('#cell').focus();
+          return false;
+        }
+      });
     } 
 
   });
@@ -111,32 +114,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
    */
   function hideErrorDialog() {
     $errorDialog.classList.remove('show'); 
-  }
-
-  /* 
-   * Function that validates user's cell phone numbers.
-   * Validates the following format:
-   *   XXX-XXX-XXXX 
-   *   XXX.XXX.XXXX 
-   *   XXX XXX XXXX
-   *
-   * Note: phone regex validation came from StackOverflow:
-   * URL: http://stackoverflow.com/questions/18375929/validate-phone-number-using-javascript
-   *
-   */
-  function validatePhoneNumber(num) {
-    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;  
-    if( ( num.match(phoneno) ) ) {  
-      return true;  
-    } else {  
-      var errorMsg = {
-        title: 'Invalid Phone Number Format',
-        message: 'Please enter a valid phone number (i.e. XXX-XXX-XXXX, XXX.XXX.XXXX, XXX XXX XXXX)'
-      }
-      showErrorDialog(errorMsg);
-      document.querySelector('#cell').focus();
-      return false;  
-    }  
   }
 
   /* 
